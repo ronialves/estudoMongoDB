@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Person List</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+      <h1>Fabricantes</h1>
+      <a href="/produto/">Produtos</a>
+      <a href="/">Home</a>
+      <br/><br/>
+      <div>
+         <table border="1">
+            <tr>
+               <th>--</th>
+               <th>Nome</th>
+               <th>Email</th>
+            </tr>
+            <tr th:each ="fabr : ${fabricantes}">
+               <td> <a th:href="@{/fabricantes/{id}(id=${fabr.id})}">Detalhe</a> </td>
+               <td th:utext="${fabr.nome}">...</td>
+               <td th:utext="${fabr.email}">...</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>
+

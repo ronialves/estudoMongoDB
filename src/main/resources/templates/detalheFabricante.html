@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Person List</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+      <script>
+      
+      function mostrarProdutos() {
+    	  
+      }
+      
+      </script>
+   </head>
+   <body>
+      <h1>Fabricante Detalhe</h1>
+      <h3 th:utext="${fabricante.name}"></h3>
+      <h3 th:utext="${fabricante.cidade}"></h3>
+      <h3 th:utext="${fabricante.estado}"></h3>
+      <h3 th:utext="${fabricante.endereco}"></h3>
+      <h3 th:utext="${fabricante.email}"></h3>
+      <h3 th:utext="${fabricante.telefone}"></h3>
+      <br/><br/>
+      <a onclick="mostrarProdutos()" th:href="@{/fabricantes/{id}/produtos(id=${fabricante.id})}">Listar Produtos</a>  
+      <div>
+         <table id="Produtos" border="1" style="display:visible">
+            <tr>
+               <th>Nome</th>
+               <th>Descrição</th>
+            </tr>
+            <tr th:each ="fabr : ${produtos}">
+               <td th:utext="${fabr.nome}">...</td>
+               <td th:utext="${fabr.descricao}">...</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>
+
